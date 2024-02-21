@@ -1,0 +1,16 @@
+{
+  "name": "js-exam1-grader",
+  "version": "1.0.0",
+  "description": "Extractor for JS Exam 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Appel",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4",
+    "extract-zip": "^2.0.1",
+    "prompt-sync": "^4.2.0"
+  }
+}
