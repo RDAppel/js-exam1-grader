@@ -14,3 +14,5 @@ const findFilesOfTypeIn = type => (folder, recursive = false) => {
 
     if (!recursive) return fs.readdirSync(folder).filter(f => f.endsWith(type))
 }
+
+module.exports = { findFoldersIn, findFilesOfTypeIn }
