@@ -1,5 +1,6 @@
 
 const fs = require('fs')
+const path = require('path')
 
 const findFoldersIn = folder => {
     return fs.readdirSync(folder, { withFileTypes: true })
@@ -10,7 +11,10 @@ const findFoldersIn = folder => {
 const findFilesOfTypeIn = type => (folder, recursive = false) => {
     if (!fs.existsSync(folder)) return
 
-    const getFiles = () => fs.readdirSync(folder).filter(f => f.endsWith(type))
+    const types = type.split('|')
+    const getFiles = () => fs.readdirSync(folder).filter(f => {
+        return types.some(t => f.endsWith(t))
+    })
 
     if (!recursive) return getFiles()
 

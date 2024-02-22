@@ -2,7 +2,7 @@
 const parseFlags = () => {
     const args = process.argv.slice(2)
 
-    const flags = args.map((arg, i) => {
+    return args.map((arg, i) => {
         const name = arg.startsWith('--') ? arg.slice(2) : null
         if (!name) return
 
@@ -11,6 +11,10 @@ const parseFlags = () => {
 
         return { [name]: nextArg }
     })
+    .reduce((acc, flag) => {
+        if (!flag) return acc
+        return { ...acc, ...flag }
+    }, { })
 }
 
 module.exports = parseFlags
